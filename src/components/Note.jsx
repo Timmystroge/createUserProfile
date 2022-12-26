@@ -1,12 +1,13 @@
 import React from "react";
-
-const Note = () => {
+const Note = ({ key, title, content }) => {
   return (
     <>
-      <div className="note">
-        <h1>LolDays</h1>
-        <p>This is the Content</p>
-      </div>
+      <main className="guestLayout">
+        <div className="note">
+          <h1>{title}</h1>
+          <p>{content}</p>
+        </div>
+      </main>
     </>
   );
 };
