@@ -21,33 +21,35 @@ header h1 {
   font-size: 1.8em;
 }
 footer {
-  position: absolute;
+  position: fixed;
   text-align: center;
   bottom: 0;
   width: 100%;
-  height: 2.5rem;
+  /* height: 2.5rem; */
+  margin: 3rem 0 1rem;
 }
 footer p {
   color: #ccc;
 }
 .guestLayout {
-  padding: 0 10px;
+  padding: 0 10px; 
 }
 .note {
   background: #fff;
   border-radius: 7px;
   box-shadow: 0 2px 5px #ccc;
   padding: 10px;
-  width: 240px;
+  width: 300px;
   margin: 16px;
   float: left;
+  position:relative;
 }
 .note h1 {
-  font-size: 1.1em;
+  font-size: 1em;
   margin-bottom: 6px;
 }
 .note p {
-  font-size: 1.1em;
+  font-size: 1em;
   margin-bottom: 10px;
   white-space: pre-wrap;
   word-wrap: break-word;
@@ -59,9 +61,10 @@ footer p {
   margin: 2rem 1rem;
 }
 .create > form {
+  background-color: white;
   min-width: 400px;
-  border-radius: 5px;
   position: relative;
+  border-radius: 10px;
   box-shadow: 0 2px 5px 2px rgba(0, 0, 0, 0.2);
 }
 .create > form input,
@@ -72,15 +75,26 @@ footer p {
   outline: none;
   border: none;
 }
+.create > form input {
+  border-bottom: 1px solid rgba(141, 141, 141, 0.1);
+  font-weight: bold;
+  border-radius: 10px 10px 0 0;
+}
+.create > form input::placeholder{
+  font-weight: bold;
+  font-family: calibri;
+  font-size: 16px;
+}
 .create > form textarea {
   resize: none;
-  padding: 0 10px 40px;
+  padding: 8px 10px 40px;
+  border-radius: 10px 10px 10px 10px;
 }
 
 .create > form button {
   border: none;
   cursor: pointer;
-  padding: 12px 8px;
+  padding: 8px 10.5px;
   background: #0a44b9;
   border-radius: 50%;
   font-size: 12px;
@@ -88,9 +102,25 @@ footer p {
   position: absolute;
   right: 10px;
   bottom: -15px;
-  box-shadow: 0 1px 2px 2px rgba(0, 0, 0, 0.3);
-
+  transition: all .1s ease;
 }
+.create > form button:hover {
+  background: rgb(147, 147, 147);
+}
+
+.guestLayout .note .delete {
+  position:absolute;
+  color: #0a44b9;
+  right: 10px;
+  bottom: -18px;
+  font-size: 12px;
+  background: white;
+  border-radius: 5px;
+  padding: 2px 5px;
+  box-shadow: 0 1px 2px  rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
 
 @media (max-width: 563px) {
   .note {

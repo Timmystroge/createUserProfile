@@ -12,6 +12,7 @@ const Note = ({ id, title, content, onDelete }) => {
               // when this button is clicked ==> Execute this function
               onDelete(id);
             }}
+            className="delete"
           >
             DELETE
           </p>
