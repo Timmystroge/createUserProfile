@@ -1,51 +1,25 @@
-import React, { useState } from "react";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Note from "./components/Note";
-// import notes from "./data/notes";
-import CreateArea from "./components/CreateArea";
-
-// ====>>>>><<<<<<======== //
+import React from "react";
+import CreateProfile from "./components/CreateProfile";
+import Profile from "./components/Profile";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NotFound from "./components/404";
 
 const App = () => {
-  //create and save notes array to state
-  const [notes, setNotes] = useState([]);
-
-  // addNote fn is passed in as a prop from createAreas
-  function addNote(newNote) {
-    // get older datas in the array and add the new datas coming from newNotes passed as a parameter
-    setNotes((prevNotes) => {
-      return [...prevNotes, newNote];
-    });
-  }
-
-  function deleteNote(id) {
-    // get all notes in the array and filter them out using the id passed as a parameter
-    setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
-    });
-  }
-
   return (
-    <div>
-      <Header />
-      <CreateArea onAdd={addNote} />
-      {/* map through the note array to display the datas */}
-      {notes.map((note, index) => {
-        return (
-          <Note
-            key={index}
-            id={index}
-            title={note.title}
-            content={note.content}
-            onDelete={deleteNote}
-          />
-        );
-      })}
-      <Footer />
-    </div>
+    <>
+      <div>
+        {/* <CreateProfile /> */}
+        {/* <Profile /> */}
+      </div>
+
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<CreateProfile />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="*" element={<NotFound />}></Route>
+        </Routes>
+      </Router>
+    </>
   );
 };
 
