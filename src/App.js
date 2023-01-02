@@ -8,35 +8,16 @@ const App = () => {
   // profile state
   const [createProfile, setProfile] = useState([]);
 
-  // destructure all inout
-  // const { fname, lname, username, email, address, phone, gender } = UserDetails;
-
   function addNewProfile(profile) {
-    // checking if one of the input fields is empty
-    if (
-      fname === "" ||
-      lname === "" ||
-      username === "" ||
-      email === "" ||
-      address === "" ||
-      phone === "" ||
-      gender === ""
-    ) {
-      alert("Empty Field! Please Fill all Inout Filed");
-      return true;
-    } else {
-      setProfile((prevProfile) => {
-        return [...prevProfile, profile];
-      });
-      // feedback
-      alert("profile created");
-      console.log(createProfile)
-    }
+    setProfile((prevProfiles) => {
+      return [...prevProfiles, profile];
+    });
+    console.log(createProfile);
   }
   return (
     <>
       <div>
-        <CreateProfile onAdd={addNewProfile}/>
+        <CreateProfile onAdd={addNewProfile} />
         <Profile />
       </div>
 

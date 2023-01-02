@@ -30,7 +30,32 @@ const CreateProfile = (props) => {
   function handleClick(e) {
     // prevent form auto reloading
     e.preventDefault();
-    props.onAdd(UserDetails);
+
+    // destructure all inout
+    const { fname, lname, username, email, address, phone, gender } =
+      UserDetails;
+
+    // checking if one of the input fields is empty
+    if (
+      fname === "" ||
+      lname === "" ||
+      username === "" ||
+      email === "" ||
+      address === "" ||
+      phone === "" ||
+      gender === ""
+    ) {
+      alert("Empty Field! Please Fill all Inout Filed");
+      return true;
+    } else {
+      props.onAdd(UserDetails)
+      // setProfile((prevProfile) => {
+      //   return [...prevProfile, profile];
+      // });
+      // feedback
+      alert("profile created");
+      // console.log(createProfile);
+    }
   }
 
   return (
