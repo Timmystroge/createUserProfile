@@ -13,7 +13,7 @@ const App = () => {
   function hideProfiles() {
     setShowProfile(false);
   }
-  // show profile
+  // show profile ends
 
   // profile state
   const [createNewProfile, setProfile] = useState([]);
@@ -23,6 +23,15 @@ const App = () => {
       return [...prevProfiles, profile];
     });
     console.log(createNewProfile);
+  }
+
+  //delet profile
+  function deleteProfile(id) {
+    setProfile((prevVals) => {
+      prevVals.filter((newValues, index) => {
+        return index != id
+      })
+    })
   }
   return (
     <>
@@ -67,7 +76,7 @@ const App = () => {
                     address={profileCreated.address}
                     phone={profileCreated.phone}
                     gender={profileCreated.gender}
-                    // onDelete={}
+                    onDelete={deleteProfile}
                   />
                 );
               })}
