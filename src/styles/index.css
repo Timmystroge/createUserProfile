@@ -82,7 +82,8 @@ body {
   margin-top: 3rem;
 }
 
-.profilecard > h2, .profilecard h4 {
+.profilecard > h2,
+.profilecard h4 {
   text-align: center;
 }
 .profilecard h4 {
@@ -94,9 +95,10 @@ body {
   gap: 1rem;
   padding: 10px;
   border-radius: 20px;
+  margin-top: 2rem;
 }
 .wrapper section {
-  background-color: rgba(127, 255, 212, 0.354);
+  background-color: rgba(49, 49, 49, 0.093);
   padding: 20px 10px;
   border-radius: 10px;
   position: relative;
@@ -113,4 +115,19 @@ body {
   right: 15px;
   top: -3px;
   color: crimson;
+}
+
+@media (max-width: 767px) {
+  .profilecard > .wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+}
+@media (max-width: 425px) {
+  .profilecard > .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
 }

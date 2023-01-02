@@ -22,12 +22,11 @@ const App = () => {
     setProfile((prevProfiles) => {
       return [...prevProfiles, profile];
     });
-    console.log(createNewProfile);
   }
 
   //delet profile
   function deleteProfile(id) {
-    if (confirm("Are you sure") === true) {
+    if (confirm("Are you sure You Want to Delete Profile") === true) {
       setProfile((prevVals) => {
         return prevVals.filter((newValues, index) => {
           return index != id;
@@ -37,7 +36,7 @@ const App = () => {
       return false;
     }
   }
-  
+
   return (
     <>
       {/* ======= Router ====== */}

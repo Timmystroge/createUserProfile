@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 
 const CreateProfile = (props) => {
@@ -51,7 +52,19 @@ const CreateProfile = (props) => {
       return true;
     } else {
       props.onAdd(UserDetails);
-      alert("Profile created");
+      alert("Profile Created SuccessFully");
+      // clear all input
+      setUserDetails({
+        firstName: "",
+        LastName: "",
+        userName: "",
+        emailAddress: "",
+        address: "",
+        phone: "",
+        gender: "",
+      })
+      // set isExpanded back to false
+      setIsExpanded(false)
     }
   }
 
@@ -67,47 +80,67 @@ const CreateProfile = (props) => {
             onChange={handleChnage}
             name="firstName"
             placeholder="First Name"
+            value={UserDetails.firstName}
             onClick={() => {
               setIsExpanded(true);
             }}
           />
-          <input
-            type="text"
-            onChange={handleChnage}
-            name="LastName"
-            placeholder="Last Name"
-          />
-          <input
-            type="text"
-            onChange={handleChnage}
-            name="userName"
-            placeholder="UserName"
-          />
-          <input
-            type="text"
-            onChange={handleChnage}
-            name="emailAddress"
-            placeholder="Email"
-          />
-          <input
-            type="text"
-            onChange={handleChnage}
-            name="address"
-            placeholder="Address"
-          />
-          <input
-            type="text"
-            onChange={handleChnage}
-            name="phone"
-            placeholder="Phone Number"
-          />
-          <select name="gender" onChange={handleChnage}>
-            <option value="">--Select--</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-          </select>
 
-          <button onClick={handleClick}> Create Profile </button>
+          {isExpanded && (
+            <input
+              type="text"
+              onChange={handleChnage}
+              name="LastName"
+              placeholder="Last Name"
+              value={UserDetails.LastName}
+            />
+          )}
+          {isExpanded && (
+            <input
+              type="text"
+              onChange={handleChnage}
+              name="userName"
+              placeholder="UserName"
+              value={UserDetails.userName}
+            />
+          )}
+          {isExpanded && (
+            <input
+              type="text"
+              onChange={handleChnage}
+              name="emailAddress"
+              placeholder="Email"
+              value={UserDetails.emailAddress}
+            />
+          )}
+          {isExpanded && (
+            <input
+              type="text"
+              onChange={handleChnage}
+              name="address"
+              placeholder="Address"
+              value={UserDetails.address}
+            />
+          )}
+          {isExpanded && (
+            <input
+              type="text"
+              onChange={handleChnage}
+              name="phone"
+              placeholder="Phone Number"
+              value={UserDetails.phone}
+            />
+          )}
+          {isExpanded && (
+            <select name="gender" onChange={handleChnage} value={UserDetails.gender}>
+              <option value="">--Select--</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          )}
+          {isExpanded && (
+            <button onClick={handleClick}> Create Profile  </button>
+          )}
         </form>
       </main>
     </>
