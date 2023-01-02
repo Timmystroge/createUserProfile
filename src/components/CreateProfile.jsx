@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
-
-const CreateProfile = () => {
-  // profile state
-  const [createProfile, setProfile] = useState([]);
-
+const CreateProfile = (props) => {
   // user Details State
   const [UserDetails, setUserDetails] = useState({
     firstName: "",
@@ -16,9 +12,6 @@ const CreateProfile = () => {
     phone: "",
     gender: "",
   });
-
-  // destructure all inout
-  const { fname, lname, username, email, address, phone, gender } = UserDetails;
 
   // get all inputed values from form
   function handleChnage(event) {
@@ -37,27 +30,7 @@ const CreateProfile = () => {
   function handleClick(e) {
     // prevent form auto reloading
     e.preventDefault();
-
-    // checking if one of the input fields is empty
-    if (
-      fname === "" ||
-      lname === "" ||
-      username === "" ||
-      email === "" ||
-      address === "" ||
-      phone === "" ||
-      gender === ""
-    ) {
-      alert("Empty Field! Please Fill all Inout Filed");
-      return true;
-    } else {
-      setProfile((prevProfile) => {
-        return [...prevProfile, UserDetails];
-      });
-      // feedback
-      alert("profile created");
-      console.log(createProfile)
-    }
+    props.onAdd(UserDetails);
   }
 
   return (
@@ -112,7 +85,7 @@ const CreateProfile = () => {
           <button onClick={handleClick}> Create Profile </button>
         </form>
         <h4 className="link">
-          <Link to="/profile">View Profile Card</Link>
+          {/* <Link to="/profile">View Profile Card</Link> */}
         </h4>
       </main>
     </>

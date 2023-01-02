@@ -1,12 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const Profile = () => {
   return (
     <div className="profilecard">
       <h2>Profile Card</h2>
       <h4 className="link">
-        <Link to="/">Create Profile Card</Link>
+        {/* <Link to="/">Create Profile Card</Link> */}
       </h4>
       <div className="wrapper">
         <section>
