@@ -3,6 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
+::-webkit-scrollbar {
+  display: none;
+}
 html {
   font-family: cursive;
 }
@@ -43,8 +46,21 @@ body {
   background: #000;
   color: white;
   cursor: pointer;
-  margin: 2rem 0 1rem;
+  margin: 2rem 0 0;
 }
+.btn {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  background: mediumseagreen;
+  color: white;
+  cursor: pointer;
+  padding: 10px 20px;
+}
+
 .code {
   background-color: crimson;
   color: white;
@@ -79,12 +95,22 @@ body {
   padding: 10px;
   border-radius: 20px;
 }
-.wrapper  section {
+.wrapper section {
   background-color: rgba(127, 255, 212, 0.354);
-  padding: 10px;
+  padding: 20px 10px;
   border-radius: 10px;
+  position: relative;
 }
 .wrapper section div {
   text-align: center;
   margin-bottom: 10px;
+}
+
+.delete {
+  padding-top: 1rem;
+  cursor: pointer;
+  position: absolute;
+  right: 15px;
+  top: -3px;
+  color: crimson;
 }
