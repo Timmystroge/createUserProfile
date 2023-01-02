@@ -6,19 +6,31 @@ import Profile from "./components/Profile";
 
 const App = () => {
   // profile state
-  const [createProfile, setProfile] = useState([]);
+  const [createNewProfile, setProfile] = useState([]);
 
   function addNewProfile(profile) {
     setProfile((prevProfiles) => {
       return [...prevProfiles, profile];
     });
-    console.log(createProfile);
+    console.log(createNewProfile);
   }
   return (
     <>
       <div>
         <CreateProfile onAdd={addNewProfile} />
-        <Profile />
+        {createNewProfile.map((profileCreated, index) => {
+          <Profile
+            key={index}
+            id={index}
+            fname={profileCreated.firstName}
+            lname={profileCreated.LastName}
+            username={profileCreated.userName}
+            email={profileCreated.emailAddress}
+            address={profileCreated.address}
+            phone={profileCreated.phone}
+            gender={profileCreated.gender}
+          />;
+        })}
       </div>
 
       {/* <Router>

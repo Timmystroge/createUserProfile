@@ -48,13 +48,8 @@ const CreateProfile = (props) => {
       alert("Empty Field! Please Fill all Inout Filed");
       return true;
     } else {
-      props.onAdd(UserDetails)
-      // setProfile((prevProfile) => {
-      //   return [...prevProfile, profile];
-      // });
-      // feedback
-      alert("profile created");
-      // console.log(createProfile);
+      props.onAdd(UserDetails);
+      alert("Profile created");
     }
   }
 
