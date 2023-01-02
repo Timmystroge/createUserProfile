@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-// import { Link } from "react-router-dom";
 
 const CreateProfile = (props) => {
+  // isExpanded
+  const [isExpanded, setIsExpanded] = useState(false);
+
   // user Details State
   const [UserDetails, setUserDetails] = useState({
     firstName: "",
@@ -65,6 +67,9 @@ const CreateProfile = (props) => {
             onChange={handleChnage}
             name="firstName"
             placeholder="First Name"
+            onClick={() => {
+              setIsExpanded(true);
+            }}
           />
           <input
             type="text"
@@ -104,9 +109,6 @@ const CreateProfile = (props) => {
 
           <button onClick={handleClick}> Create Profile </button>
         </form>
-        <h4 className="link">
-          {/* <Link to="/profile">View Profile Card</Link> */}
-        </h4>
       </main>
     </>
   );

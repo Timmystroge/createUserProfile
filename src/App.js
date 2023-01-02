@@ -27,12 +27,17 @@ const App = () => {
 
   //delet profile
   function deleteProfile(id) {
-    setProfile((prevVals) => {
-      prevVals.filter((newValues, index) => {
-        return index != id
-      })
-    })
+    if (confirm("Are you sure") === true) {
+      setProfile((prevVals) => {
+        return prevVals.filter((newValues, index) => {
+          return index != id;
+        });
+      });
+    } else {
+      return false;
+    }
   }
+  
   return (
     <>
       {/* ======= Router ====== */}
